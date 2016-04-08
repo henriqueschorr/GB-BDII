@@ -1,18 +1,16 @@
 package com.uni.farmacia.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Cliente implements Serializable{
+public class Vendedor implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_Classificacao")
@@ -25,10 +23,7 @@ public class Cliente implements Serializable{
 	@Column(length = 11, nullable = false)
 	private String	 cpf;
 	
-	@OneToMany
-	private Collection<Pedido> pedidos;
-	
-	public Cliente(String nome, String cpf) {
+	public Vendedor(String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
 	}
@@ -48,13 +43,7 @@ public class Cliente implements Serializable{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public Collection<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(Collection<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}	
+	
+	
 
 }

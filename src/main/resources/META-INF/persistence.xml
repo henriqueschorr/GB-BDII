@@ -3,12 +3,13 @@
 <persistence-unit name="BD2" transaction-type="RESOURCE_LOCAL">
 <provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<class>com.uni.farmacia.entity.Cliente</class>
+	<class>com.uni.farmacia.entity.Pedido</class>
 
      <properties>
-		<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/BD2" />
+		<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/postgres" />
 		<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-		<property name="hibernate.connection.password" value="bd2" />
-        <property name="hibernate.connection.username" value="bd2" />
+		<property name="hibernate.connection.password" value="porsche918" />
+        <property name="hibernate.connection.username" value="postgres" />
         <property name="hibernate.max_fetch_depth" value="2" />
         <property name="hibernate.show_sql" value="true" />
         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>

@@ -1,11 +1,14 @@
 package org.persist.test;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.uni.farmacia.entity.Cliente;
+import com.uni.farmacia.entity.Pedido;
 
 public class TesteDatabase {
 	public static void main(String[] args) {
@@ -15,44 +18,23 @@ public class TesteDatabase {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("BD2");
 		EntityManager em = emf.createEntityManager();
 
-		// Os comandos a seguir devem ser executados "um por vez"
-		// Inserindo...
+		
+		ArrayList<Pedido> d = new ArrayList<Pedido>();
+		Cliente p = new Cliente("Henrique", "03099238082");
+		Pedido d1 = new Pedido(p);
+		Pedido d2 = new Pedido(p);
+//		d1.setPessoa(p);
+//		d2.setPessoa(p);
+		d.add(d1);
+		d.add(d2);
+		p.setPedidos(d);
+
 		em.getTransaction().begin();
-		em.persist(new Cliente("Henrique", "03099238082"));
-		em.persist(new Cliente("Cassia", "03099238082"));
+		em.persist(d1);
+		em.persist(d2);
+		em.persist(p);
 		em.getTransaction().commit();
-		
-		// Atualizando...
-		// Buscara a fruteira com id = 1. Observe o numero do id pelo pgAdmin3!
-		Cliente cliente = em.find(Cliente.class, 1L); 
-		if (cliente != null) {
-			em.getTransaction().begin();
-			cliente.setNome("Billy");
-			em.merge(cliente);
-			em.getTransaction().commit();
-		}
-//		// Recuperando "n" objetos...
-//		TypedQuery<Fruteira> q = em.createQuery("SELECT f " +
-//												"FROM Fruteira f", Fruteira.class);
-//		for (Fruteira each : q.getResultList()) {
-//			System.out.println(each.toString());
-//		}		
-//		
-//		// Excluindo...
-//		// Buscara a fruteira com id = 1. Observe o numero do id pelo pgAdmin3!
-//		fruteira = em.find(Fruteira.class, 1L); 
-//		if (fruteira != null) {
-//			em.getTransaction().begin();
-//			em.remove(fruteira);
-//			em.getTransaction().commit();
-//		}
-//
-//		// Recuperando "n" objetos...
-//		q = em.createQuery("FROM Fruteira f", Fruteira.class);
-//		for (Fruteira each : q.getResultList()) {
-//			System.out.println(each.toString());
-//		}
-		
+
 		System.exit(0);
 	}
 }
