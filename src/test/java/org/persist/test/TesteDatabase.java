@@ -12,10 +12,8 @@ import com.uni.farmacia.entity.Pedido;
 
 public class TesteDatabase {
 	public static void main(String[] args) {
-		// Inicializacao da fabrica de objetos
-		// persistenceUnitName = "BD2", ou seja, relaciona com a conexao na
-		// persistence.xml (podera ter "n" unidades de persistencia)
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("BD2");
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("FARMACIA");
 		EntityManager em = emf.createEntityManager();
 
 		
