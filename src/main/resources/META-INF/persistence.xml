@@ -4,8 +4,11 @@
 <provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<class>com.uni.farmacia.entity.Cliente</class>
 	<class>com.uni.farmacia.entity.Pedido</class>
+<<<<<<< HEAD
 	<class>com.uni.farmacia.entity.Vendedor</class>
 	<class>com.uni.farmacia.entity.Medicamento</class>
+=======
+>>>>>>> 521eddcf639fbbd2f06901f2d19f68aa9fd9b6c5
 
      <properties>
 		<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/farmacia" />
