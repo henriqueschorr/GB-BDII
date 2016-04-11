@@ -1,12 +1,14 @@
 package com.uni.farmacia.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -22,6 +24,11 @@ public class Vendedor implements Serializable{
 	
 	@Column(length = 11, nullable = false)
 	private String	 cpf;
+	
+	@OneToMany(mappedBy="vendedor")
+	private Collection<Pedido> vendas;
+	
+	public Vendedor(){}
 	
 	public Vendedor(String nome, String cpf) {
 		this.nome = nome;
@@ -43,7 +50,17 @@ public class Vendedor implements Serializable{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
-	
 
+	public Collection<Pedido> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(Collection<Pedido> vendas) {
+		this.vendas = vendas;
+	}
+	
+	
+//	public void addVenda(Pedido venda){
+//		this.vendas.add(venda);
+//	}
 }

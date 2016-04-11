@@ -25,8 +25,10 @@ public class Cliente implements Serializable{
 	@Column(length = 11, nullable = false)
 	private String	 cpf;
 	
-	@OneToMany
+	@OneToMany(mappedBy="cliente")
 	private Collection<Pedido> pedidos;
+	
+	public Cliente(){}
 	
 	public Cliente(String nome, String cpf) {
 		this.nome = nome;
@@ -56,5 +58,9 @@ public class Cliente implements Serializable{
 	public void setPedidos(Collection<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}	
+	
+//	public void addPedido(Pedido pedido){
+//		this.pedidos.add(pedido);
+//	}
 
 }
