@@ -23,7 +23,7 @@ public class Cliente implements Serializable{
 	private String nome;
 	
 	@Column(length = 11, nullable = false)
-	private String	 cpf;
+	private String cpf;
 	
 	@OneToMany(mappedBy="cliente")
 	private Collection<Pedido> pedidos;

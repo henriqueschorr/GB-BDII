@@ -28,7 +28,7 @@ public class Pedido implements Serializable{
 	private String data;
 	
 	@Column
-	private int quantidadeItens;
+	private Integer quantidadeItens;
 	
 	@Column
 	private double valorTotal;
@@ -59,11 +59,11 @@ public class Pedido implements Serializable{
 		this.data = data;
 	}
 
-	public int getQuantidadeItens() {
+	public Integer getQuantidadeItens() {
 		return quantidadeItens;
 	}
 
-	public void setQuantidadeItens(int quantidadeItens) {
+	public void setQuantidadeItens(Integer quantidadeItens) {
 		this.quantidadeItens = quantidadeItens;
 	}
 
