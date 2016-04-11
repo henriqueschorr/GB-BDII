@@ -1,0 +1,147 @@
+{
+  "xs:schema": {
+    "-xmlns:xs": "http://www.w3.org/2001/XMLSchema",
+    "-version": "1.0",
+    "xs:complexType": [
+      {
+        "-name": "pedido",
+        "xs:sequence": {
+          "xs:element": [
+            {
+              "-name": "cliente",
+              "-type": "cliente",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "data",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "medicamentos",
+              "-type": "medicamento",
+              "-nillable": "true",
+              "-minOccurs": "0",
+              "-maxOccurs": "unbounded"
+            },
+            {
+              "-name": "quantidadeItens",
+              "-type": "xs:int"
+            },
+            {
+              "-name": "valorTotal",
+              "-type": "xs:double"
+            },
+            {
+              "-name": "vendedor",
+              "-type": "vendedor",
+              "-minOccurs": "0"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "cliente",
+        "xs:sequence": {
+          "xs:element": [
+            {
+              "-name": "cpf",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "nome",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "pedidos",
+              "-type": "pedido",
+              "-nillable": "true",
+              "-minOccurs": "0",
+              "-maxOccurs": "unbounded"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "medicamento",
+        "xs:sequence": {
+          "xs:element": [
+            {
+              "-name": "composicao",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "estoque",
+              "-type": "xs:int"
+            },
+            {
+              "-name": "laboratorio",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "nome",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "preco",
+              "-type": "xs:double"
+            },
+            {
+              "-name": "tipo",
+              "-type": "tipoMedicamento",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "vendas",
+              "-type": "pedido",
+              "-nillable": "true",
+              "-minOccurs": "0",
+              "-maxOccurs": "unbounded"
+            }
+          ]
+        }
+      },
+      {
+        "-name": "vendedor",
+        "xs:sequence": {
+          "xs:element": [
+            {
+              "-name": "cpf",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "nome",
+              "-type": "xs:string",
+              "-minOccurs": "0"
+            },
+            {
+              "-name": "vendas",
+              "-type": "pedido",
+              "-nillable": "true",
+              "-minOccurs": "0",
+              "-maxOccurs": "unbounded"
+            }
+          ]
+        }
+      },
+      { "-name": "testeDatabase" }
+    ],
+    "xs:simpleType": {
+      "-name": "tipoMedicamento",
+      "xs:restriction": {
+        "-base": "xs:string",
+        "xs:enumeration": [
+          { "-value": "ETICO" },
+          { "-value": "GENERICO" },
+          { "-value": "SIMILAR" }
+        ]
+      }
+    }
+  }
+}

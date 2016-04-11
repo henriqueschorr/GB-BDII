@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="pedido">
+    <xs:sequence>
+      <xs:element name="cliente" type="cliente" minOccurs="0"/>
+      <xs:element name="data" type="xs:string" minOccurs="0"/>
+      <xs:element name="medicamentos" type="medicamento" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="quantidadeItens" type="xs:int"/>
+      <xs:element name="valorTotal" type="xs:double"/>
+      <xs:element name="vendedor" type="vendedor" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cliente">
+    <xs:sequence>
+      <xs:element name="cpf" type="xs:string" minOccurs="0"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="pedidos" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="medicamento">
+    <xs:sequence>
+      <xs:element name="composicao" type="xs:string" minOccurs="0"/>
+      <xs:element name="estoque" type="xs:int"/>
+      <xs:element name="laboratorio" type="xs:string" minOccurs="0"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="preco" type="xs:double"/>
+      <xs:element name="tipo" type="tipoMedicamento" minOccurs="0"/>
+      <xs:element name="vendas" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="vendedor">
+    <xs:sequence>
+      <xs:element name="cpf" type="xs:string" minOccurs="0"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="vendas" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="testeDatabase">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:simpleType name="tipoMedicamento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ETICO"/>
+      <xs:enumeration value="GENERICO"/>
+      <xs:enumeration value="SIMILAR"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

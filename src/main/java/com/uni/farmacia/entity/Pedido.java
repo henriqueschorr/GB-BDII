@@ -1,6 +1,7 @@
 package com.uni.farmacia.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
 
@@ -24,7 +25,7 @@ public class Pedido implements Serializable{
 	private Long id;
 	
 	@Column
-	private Date data;
+	private String data;
 	
 	@Column
 	private int quantidadeItens;
@@ -50,11 +51,11 @@ public class Pedido implements Serializable{
 		this.vendedor = vendedor;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

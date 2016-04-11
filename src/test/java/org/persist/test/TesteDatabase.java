@@ -1,6 +1,8 @@
 package org.persist.test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,6 +37,10 @@ public class TesteDatabase {
 		ArrayList<Pedido> pedidos2 = new ArrayList<Pedido>();
 		
 		int estoque;
+		double valor;
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+		String formattedDate = sdf.format(date);
 		
 		//Primeira venda
 		Pedido pedido1 = new Pedido(vendedor1);
@@ -56,6 +62,15 @@ public class TesteDatabase {
 		estoque--; 
 		medicamento2.setEstoque(estoque);
 		
+		valor = medicamento1.getPreco() + medicamento2.getPreco();
+		pedido1.setValorTotal(valor);
+		
+		pedido1.setData(formattedDate);
+		
+		pedido1.setQuantidadeItens(pedidos1.size()+1);
+		
+		
+		
 		pedido1.setMedicamentos(medicamentos1);
 		
 		//Segunda venda
@@ -72,8 +87,14 @@ public class TesteDatabase {
 		estoque--; 
 		medicamento3.setEstoque(estoque);
 		
-		pedido2.setMedicamentos(medicamentos2);
+		valor = medicamento3.getPreco();
+		pedido2.setValorTotal(valor);
 		
+		pedido2.setQuantidadeItens(pedidos2.size()+1);
+		
+		pedido2.setData(formattedDate);
+		
+		pedido2.setMedicamentos(medicamentos2);		
 		
 		em.getTransaction().begin();
 		em.persist(cliente1);
@@ -86,7 +107,6 @@ public class TesteDatabase {
 		em.persist(pedido1);
 		em.persist(pedido2);
 		em.getTransaction().commit();
-		
 		System.exit(0);
 	}
 }
