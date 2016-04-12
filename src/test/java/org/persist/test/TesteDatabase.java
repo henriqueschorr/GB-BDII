@@ -38,14 +38,13 @@ public class TesteDatabase {
 
 		ArrayList<Medicamento> medicamentos1 = new ArrayList<Medicamento>();
 		ArrayList<Medicamento> medicamentos2 = new ArrayList<Medicamento>();
-		ArrayList<Medicamento> medicamentos3 = new ArrayList<Medicamento>();
 		ArrayList<Pedido> pedidos1 = new ArrayList<Pedido>();
 		ArrayList<Pedido> pedidos2 = new ArrayList<Pedido>();
 
 		int estoque;
 		double valor;
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy h:mm:ss a");
 		String formattedDate = sdf.format(date);
 
 		// Primeira venda

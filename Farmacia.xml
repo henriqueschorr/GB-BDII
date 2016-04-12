@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="Farmacia.xsd">
+	<cliente>
+		<cpf>12345678901</cpf>
+		<nome>Henrique</nome>
+	</cliente>
+	<data>11042016093110</data>
+	<medicamentos>
+		<composicao>Amoxicilina 500mg</composicao>
+		<estoque>5</estoque>
+		<laboratorio>Glaxosmithkline</laboratorio>
+		<nome>Amoxil 500mg</nome>
+		<preco>35.0</preco>
+		<tipo>ETICO</tipo>
+	</medicamentos>
+	<quantidadeItens>1</quantidadeItens>
+	<valorTotal>35.0</valorTotal>
+	<vendedor>
+		<cpf>10987654321</cpf>
+		<nome>Douglas</nome>
+	</vendedor>
+</pedido>

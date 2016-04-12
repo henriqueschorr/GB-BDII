@@ -1,9 +1,7 @@
 package com.uni.farmacia.entity;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,9 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
+@XmlRootElement
 public class Pedido implements Serializable{
 	
 	@Id
@@ -24,13 +24,13 @@ public class Pedido implements Serializable{
 	@SequenceGenerator(name = "seq_Classificacao", sequenceName = "s_Classificacao", allocationSize = 1)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String data;
 	
-	@Column
+	@Column(nullable = false)
 	private Integer quantidadeItens;
 	
-	@Column
+	@Column(nullable = false)
 	private double valorTotal;
 	
 	@ManyToOne

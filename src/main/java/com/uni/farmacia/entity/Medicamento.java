@@ -21,22 +21,22 @@ public class Medicamento implements Serializable{
 	@SequenceGenerator(name = "seq_Classificacao", sequenceName = "s_Classificacao", allocationSize = 1)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
-	@Column
+	@Column(nullable = false)
 	private String composicao;
 	
-	@Column
+	@Column(nullable = false)
 	private TipoMedicamento tipo;
 	
-	@Column
+	@Column(nullable = false)
 	private String laboratorio;
 	
-	@Column
+	@Column(nullable = false)
 	private int estoque;
 	
-	@Column
+	@Column(nullable = false)
 	private double preco;
 	
 	@ManyToMany

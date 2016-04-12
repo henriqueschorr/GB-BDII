@@ -1,0 +1,25 @@
+{
+    "pedido": {
+        "cliente": {
+            "cpf": "12345678901",
+            "nome": "Henrique"
+        },
+        "data": "11042016093110",
+        "medicamentos": {
+            "composicao": "Amoxicilina 500mg",
+            "estoque": "5",
+            "laboratorio": "Glaxosmithkline",
+            "nome": "Amoxil 500mg",
+            "preco": "35.0",
+            "tipo": "ETICO"
+        },
+        "quantidadeItens": "1",
+        "valorTotal": "35.0",
+        "vendedor": {
+            "cpf": "10987654321",
+            "nome": "Douglas"
+        },
+        "_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "_xsi:noNamespaceSchemaLocation": "Farmacia.xsd"
+    }
+}
